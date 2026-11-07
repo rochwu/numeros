@@ -1,1 +1,1 @@
-export {Maker} from './Maker';
+export { Maker } from "./Maker";

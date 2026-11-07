@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 export const Divider = styled.div({
-  marginLeft: '20px',
+	marginLeft: "20px",
 });

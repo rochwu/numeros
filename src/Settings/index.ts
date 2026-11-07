@@ -1,2 +1,2 @@
-export * from './Settings';
-export * from './recoil';
+export * from "./recoil";
+export * from "./Settings";

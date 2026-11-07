@@ -1,39 +1,39 @@
-import {atom} from 'recoil';
+import { atom } from "recoil";
 
 // Show possible values for each column + row
 export const columRowAidState = atom({
-  key: 'isAidOnState',
-  default: false,
+	key: "isAidOnState",
+	default: false,
 });
 
 export const autoPencilState = atom({
-  key: 'autoPencilState',
-  default: false,
+	key: "autoPencilState",
+	default: false,
 });
 
 export const autoSelectPossibleState = atom({
-  key: 'autoSelectPossibleState',
-  default: true,
+	key: "autoSelectPossibleState",
+	default: true,
 });
 
 export const smartFill = atom({
-  key: 'smartFill',
-  default: true,
+	key: "smartFill",
+	default: true,
 });
 
 // Convenience + Game Config
 export const showHistoryState = atom({
-  key: 'showHistoryState',
-  default: false,
+	key: "showHistoryState",
+	default: false,
 });
 
 export const showMakerState = atom({
-  key: 'showMakerState',
-  default: false,
+	key: "showMakerState",
+	default: false,
 });
 
 // UI Overrides
 export const canOverscrollState = atom({
-  key: `canOverscrollState`,
-  default: window.history.length > 1,
+	key: `canOverscrollState`,
+	default: window.history.length > 1,
 });
