@@ -1,48 +1,48 @@
-import {selectValues} from './selectors';
-import {Identifier, State} from './types';
-import {getBlockIndex} from '../globals';
+import { getBlockIndex } from "../globals";
+import { selectValues } from "./selectors";
+import type { Identifier, State } from "./types";
 
 export const showPossibleSelection = (
-  state: State,
-  value: string,
-  id: Identifier,
+	state: State,
+	value: string,
+	id: Identifier,
 ) => {
-  const values = selectValues(state);
+	const values = selectValues(state);
 
-  // Found on:
-  const rows = new Array(9).fill(false);
-  const columns = new Array(9).fill(false);
-  const blocks = new Array(9).fill(false);
+	// Found on:
+	const rows = new Array(9).fill(false);
+	const columns = new Array(9).fill(false);
+	const blocks = new Array(9).fill(false);
 
-  for (let row = 0; row < 9; row++) {
-    for (let column = 0; column < 9; column++) {
-      const identifier = `${row}${column}`;
+	for (let row = 0; row < 9; row++) {
+		for (let column = 0; column < 9; column++) {
+			const identifier = `${row}${column}`;
 
-      if (values[identifier] === value) {
-        rows[row] = true;
-        columns[column] = true;
-        blocks[getBlockIndex(row, column)] = true;
-      }
-    }
-  }
+			if (values[identifier] === value) {
+				rows[row] = true;
+				columns[column] = true;
+				blocks[getBlockIndex(row, column)] = true;
+			}
+		}
+	}
 
-  const possibilities = [id];
+	const possibilities = [id];
 
-  for (let row = 0; row < 9; row++) {
-    for (let column = 0; column < 9; column++) {
-      const identifier = `${row}${column}`;
+	for (let row = 0; row < 9; row++) {
+		for (let column = 0; column < 9; column++) {
+			const identifier = `${row}${column}`;
 
-      if (
-        identifier !== id &&
-        !values[identifier] &&
-        !blocks[getBlockIndex(row, column)] &&
-        !rows[row] &&
-        !columns[column]
-      ) {
-        possibilities.push(identifier);
-      }
-    }
-  }
+			if (
+				identifier !== id &&
+				!values[identifier] &&
+				!blocks[getBlockIndex(row, column)] &&
+				!rows[row] &&
+				!columns[column]
+			) {
+				possibilities.push(identifier);
+			}
+		}
+	}
 
-  return possibilities;
+	return possibilities;
 };

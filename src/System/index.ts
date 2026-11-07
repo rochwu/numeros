@@ -1,1 +1,1 @@
-export {System} from './System';
+export { System } from "./System";

@@ -6,21 +6,21 @@ export type Grid = string;
 // row[1-9] + column[1-9] + value[1-9]
 // ie: "112" is value "2" on the topmost leftmost cell
 export const tuplesToGrid = (...tuples: string[]): Grid => {
-  const dictionary: {[key: number]: string} = {};
+	const dictionary: { [key: number]: string } = {};
 
-  tuples.forEach(tuple => {
-    const row = (parseInt(tuple[0], 10) - 1) * 9;
-    const column = parseInt(tuple[1], 10);
-    const index = row + column;
+	tuples.forEach((tuple) => {
+		const row = (parseInt(tuple[0], 10) - 1) * 9;
+		const column = parseInt(tuple[1], 10);
+		const index = row + column;
 
-    dictionary[index] = tuple[2];
-  });
+		dictionary[index] = tuple[2];
+	});
 
-  let grid = '';
+	let grid = "";
 
-  for (let i = 1; i <= 81; i++) {
-    grid += dictionary[i] || '0';
-  }
+	for (let i = 1; i <= 81; i++) {
+		grid += dictionary[i] || "0";
+	}
 
-  return grid;
+	return grid;
 };

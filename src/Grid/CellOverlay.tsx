@@ -1,51 +1,50 @@
-import {FC, ReactNode} from 'react';
-
-import styled from '@emotion/styled';
-import {useSelector} from 'react-redux';
-import {Identifier, selectHighlight} from '../state';
-import {Size} from '../globals';
+import styled from "@emotion/styled";
+import type { FC, ReactNode } from "react";
+import { useSelector } from "react-redux";
+import { Size } from "../globals";
+import { type Identifier, selectHighlight } from "../state";
 
 const Highlight = styled.div({
-  display: 'grid',
+	display: "grid",
 });
 
 const Selection = styled.div({
-  display: 'grid',
-  justifyContent: 'center',
-  alignItems: 'center',
+	display: "grid",
+	justifyContent: "center",
+	alignItems: "center",
 });
 
 const halfCell = `${
-  parseInt(Size.Pen.substring(0, 2), 10) / 2
+	parseInt(Size.Pen.substring(0, 2), 10) / 2
 }${Size.Pen.substring(2)}`;
 
 export const CellOverlay: FC<{
-  isSelected: boolean;
-  isFirstSelected: boolean;
-  value: string;
-  identifier: Identifier;
-  children: ReactNode;
-}> = ({isSelected, isFirstSelected, children, value, identifier: id}) => {
-  const highlight = useSelector(selectHighlight(id));
+	isSelected: boolean;
+	isFirstSelected: boolean;
+	value: string;
+	identifier: Identifier;
+	children: ReactNode;
+}> = ({ isSelected, isFirstSelected, children, value, identifier: id }) => {
+	const highlight = useSelector(selectHighlight(id));
 
-  const selectionStyle = isSelected
-    ? {
-        backgroundColor: 'rgb(200, 200, 200, 0.5)',
-        boxShadow: isFirstSelected ? `inset 0 0 4px black` : undefined,
-      }
-    : undefined;
+	const selectionStyle = isSelected
+		? {
+				backgroundColor: "rgb(200, 200, 200, 0.5)",
+				boxShadow: isFirstSelected ? `inset 0 0 4px black` : undefined,
+			}
+		: undefined;
 
-  const highlightStyle =
-    highlight && !value
-      ? {
-          backgroundColor: highlight,
-          boxShadow: isSelected ? `inset 0 0 ${halfCell} white` : undefined,
-        }
-      : undefined;
+	const highlightStyle =
+		highlight && !value
+			? {
+					backgroundColor: highlight,
+					boxShadow: isSelected ? `inset 0 0 ${halfCell} white` : undefined,
+				}
+			: undefined;
 
-  return (
-    <Highlight style={highlightStyle}>
-      <Selection style={selectionStyle}>{children}</Selection>
-    </Highlight>
-  );
+	return (
+		<Highlight style={highlightStyle}>
+			<Selection style={selectionStyle}>{children}</Selection>
+		</Highlight>
+	);
 };

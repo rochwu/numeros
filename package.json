@@ -1,48 +1,35 @@
 {
-  "name": "numero-di-posto",
-  "version": "1.0.0",
-  "description": "",
-  "keywords": [],
-  "main": "src/index.tsx",
-  "homepage": "https://rochwu.github.io/numero-di-posto",
-  "dependencies": {
-    "@emotion/react": "11.10.8",
-    "@emotion/styled": "11.10.8",
-    "@fluentui/react": "8.109.2",
-    "@reduxjs/toolkit": "1.9.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-redux": "8.0.5",
-    "react-scripts": "5.0.1",
-    "react-transition-group": "4.4.5",
-    "recoil": "0.7.7",
-    "redux": "4.2.1",
-    "redux-devtools-extension": "2.13.9"
-  },
-  "devDependencies": {
-    "@types/react": "18.2.5",
-    "@types/react-dom": "18.2.4",
-    "@types/react-redux": "7.1.25",
-    "@types/react-transition-group": "4.4.6",
-    "gh-pages": "5.0.0",
-    "typescript": "5.0.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
-  }
+	"name": "numeros",
+	"version": "1.0.0",
+	"description": "",
+	"keywords": [],
+	"main": "src/index.tsx",
+	"dependencies": {
+		"@emotion/react": "11.10.8",
+		"@emotion/styled": "11.10.8",
+		"@fluentui/react": "8.109.2",
+		"@reduxjs/toolkit": "1.9.5",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-redux": "8.0.5",
+		"react-transition-group": "4.4.5",
+		"recoil": "0.7.7",
+		"redux": "4.2.1",
+		"redux-devtools-extension": "2.13.9"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.6.6",
+		"@types/react": "18.2.5",
+		"@types/react-dom": "18.2.4",
+		"@types/react-redux": "7.1.25",
+		"@types/react-transition-group": "4.4.6",
+		"typescript": "5.0.4"
+	},
+	"scripts": {
+		"dev": "bun ./index.html",
+		"build": "bun build ./index.html --outdir=dist --production --public-path=/numeros/",
+		"typecheck": "tsc --noEmit",
+		"lint": "biome check",
+		"format": "biome check --write"
+	}
 }
